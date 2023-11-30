@@ -23,10 +23,28 @@ namespace ConsoleeUI
 
             //CarGetById();
 
-            CarDelete();
+            //CarDelete();
 
-            GetCarDetails();
+            //GetCarDetails();
 
+
+            BrandGetAll();
+
+        }
+
+        private static void BrandGetAll()
+        {
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
+            {
+                var result = brandManager.GetAll();
+                if (result.Success == true)
+                {
+                    foreach (var brand in result.Data)
+                    {
+                        Console.WriteLine(brand.BrandName);
+                    }
+                }
+            }
         }
 
         //private static void GetCarDetails()
