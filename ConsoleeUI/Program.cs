@@ -25,23 +25,27 @@ namespace ConsoleeUI
 
             CarDelete();
 
-            CarManager carManager = new CarManager(new EfCarDal());
-            foreach (var car in carManager.GetCarDetails())
-            {
-                Console.WriteLine(car.CarName+ "/"+ car.BrandName);
-            }
-
+            GetCarDetails();
 
         }
 
-        private static void CarDelete()
-        {
-            CarManager carManager = new CarManager(new EfCarDal());
-            foreach (var car in carManager.GetCarsByBrandId(1))
-            {
-                carManager.Delete(car);
-            }
-        }
+        //private static void GetCarDetails()
+        //{
+        //    CarManager carManager = new CarManager(new EfCarDal());
+        //    foreach (var car in carManager.GetCarDetails())
+        //    {
+        //        Console.WriteLine(car.CarName + "/" + car.BrandName);
+        //    }
+        //}
+
+        //private static void CarDelete()
+        //{
+        //    CarManager carManager = new CarManager(new EfCarDal());
+        //    foreach (var car in carManager.GetCarsByBrandId(1))
+        //    {
+        //        carManager.Delete(car);
+        //    }
+        //}
 
         //private static void CarGetById()
         //{
