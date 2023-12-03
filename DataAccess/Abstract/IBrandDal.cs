@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IBrandDal:IEntityRepositories<Brand>
+    public interface IBrandDal:IEntityRepository<Brand>
     {
     }
 }

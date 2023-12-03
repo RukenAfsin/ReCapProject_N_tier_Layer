@@ -1,4 +1,4 @@
-﻿using Core.DataAcces.EntityFramework;
+﻿using Core.DataAccess.EntityFramework;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfUserDal:EfEntityRepositoryBase<User,Context>,IUserDal
+    public class EfUserDal:EfEntityRepositoryBase<User,RentACarContext>,IUserDal
     {
     }
 }
