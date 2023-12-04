@@ -1,14 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "Vi/3nU/wBYzV7yccWtU1Dbrp7e+kdYWcQmUxV5FgH+vsgt9EURHlzx8r9lG8ho4iX8gXYuozc19//gaDT+wcdQ==",
+  "dgSpecHash": "GSH/SjnLnQRJ0zTIOKcpby7PeaXRn4CxSdV5kXzPnlHDqdkZ18gKtccymC3YWLiL+NpXIApGAqsqATyCZ7wHjg==",
   "success": true,
   "projectFilePath": "C:\\Users\\User\\Desktop\\Applications\\ReCapProject\\ConsoleeUI\\ConsoleeUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\autofac\\7.1.0\\autofac.7.1.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\autofac.extensions.dependencyinjection\\8.0.0\\autofac.extensions.dependencyinjection.8.0.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\autofac.extras.dynamicproxy\\7.1.0\\autofac.extras.dynamicproxy.7.1.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\fluentvalidation\\11.8.1\\fluentvalidation.11.8.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",
