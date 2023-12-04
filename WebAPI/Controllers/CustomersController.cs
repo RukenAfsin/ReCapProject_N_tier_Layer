@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,7 +16,7 @@ namespace WebAPI.Controllers
             _customerService = customerService;
         }
 
-        [HttpGet("get")]
+        [HttpGet("getall")]
         public IActionResult GetAll()
         {
             var result=_customerService.GetAll();
@@ -24,6 +25,17 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
             return BadRequest();
+        }
+
+        [HttpPost("add")]
+        public IActionResult Add(Customer customer)
+        {
+            var result= _customerService.Add(customer);
+            if(result.Success)
+            {
+                return Ok(result.Success);
+            }
+            return BadRequest(result);
         }
     }
 }

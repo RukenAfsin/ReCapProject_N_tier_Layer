@@ -14,10 +14,21 @@ namespace WebAPI
             // Add services to the container.
 
             builder.Services.AddControllers();
+
             builder.Services.AddSingleton<ICarService, CarManager>();
             builder.Services.AddSingleton<ICarDal, EfCarDal>();
+
             builder.Services.AddSingleton<ICustomerService, CustomerManager>();
             builder.Services.AddSingleton<ICustomerDal, EfCustomerDal>();
+
+            builder.Services.AddSingleton<IUserService, UserManager>();
+            builder.Services.AddSingleton<IUserDal, EfUserDal>();
+
+            builder.Services.AddSingleton<IBrandService, BrandManager>();
+            builder.Services.AddSingleton<IBrandDal, EfBrandDal>();
+
+            builder.Services.AddSingleton<IColorService, ColorManager>();
+            builder.Services.AddSingleton<IColorDal, EfColorDal>();
 
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
