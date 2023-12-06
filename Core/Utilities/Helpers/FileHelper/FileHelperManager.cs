@@ -1,11 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Core.Utilities.Helpers.GuidHelper;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Core.Utilities.Helpers.FileHelper
 {
@@ -37,7 +32,7 @@ namespace Core.Utilities.Helpers.FileHelper
                     Directory.CreateDirectory(root);
                 }
                 string extension = Path.GetExtension(file.FileName);
-                string guid = GuidHelper.CreateGuid();
+                string guid = GuidHelper.GuidHelper.CreateGuid();
                 string filePath = guid + extension;
 
                 using (FileStream fileStream = File.Create(root + filePath))
