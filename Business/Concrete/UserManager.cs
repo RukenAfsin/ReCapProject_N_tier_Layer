@@ -20,17 +20,18 @@ namespace Business.Concrete
         [ValidationAspect(typeof(UserValidator))]
         public IResult Add(User user)
         {
-            throw new NotImplementedException();
+            _userDal.Add(user);
+            return new SuccessResult();
         }
 
         public IDataResult<User> GetByMail(string email)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<User>(_userDal.GetAll(u => u.Email == email).FirstOrDefault());
         }
 
         public IDataResult<List<OperationClaim>> GetClaims(User user)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user));
         }
     }
 }
