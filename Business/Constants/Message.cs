@@ -19,6 +19,7 @@ namespace Business.Constants
         public static string CustomerUpdated = "Müşteri bilgileri güncellenmiştir";
         public static string RentalAdded = "Araç kiralanmıştır";
         public static string RentalNotAdded = "Aracı henüz teslim edilmedi, kiralayamazsınız";
+        public static string AuthorizationNotAllowed= "Yetkiniz yok";
 
         //public static string RentalListed = "Kiralık araçlar listelenmiştir";
 
