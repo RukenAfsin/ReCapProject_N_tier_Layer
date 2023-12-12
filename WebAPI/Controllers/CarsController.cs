@@ -23,9 +23,9 @@ namespace WebAPI.Controllers
 
             if(result.Success)
             {
-                return Ok(result.Success);
+                return Ok();
             }
-            return BadRequest(result);
+            return BadRequest();
         }
         [HttpGet("getcardetails")]
         public IActionResult GetCarDetails()

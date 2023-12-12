@@ -19,8 +19,8 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result=_customerService.GetAll();
-            if(result.Success)
+            var result = _customerService.GetAll();
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -30,12 +30,24 @@ namespace WebAPI.Controllers
         [HttpPost("add")]
         public IActionResult Add(Customer customer)
         {
-            var result= _customerService.Add(customer);
-            if(result.Success)
+            var result = _customerService.Add(customer);
+            if (result.Success)
             {
                 return Ok(result.Success);
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getcustomerdetails")]
+        public IActionResult GetCustomerDetails()
+        {
+            var result=_customerService.GetCustomersDetails();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest();
+        }
+
     }
 }
