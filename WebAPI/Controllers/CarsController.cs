@@ -27,6 +27,17 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+        [HttpGet("getcardetails")]
+        public IActionResult GetCarDetails()
+        {
+            var result = _carService.GetAll();
+
+            if (result.Success)
+            {
+                return Ok(result.Success);
+            }
+            return BadRequest(result);
+        }
 
         [HttpPost("add")]
         public IActionResult Add(Car car)
