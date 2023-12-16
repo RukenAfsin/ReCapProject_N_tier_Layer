@@ -5,6 +5,7 @@ using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,11 @@ namespace Business.Concrete
         public IDataResult<List<Brand>> GetAll()
         {
             return new SuccessDataResult<List<Brand>>( _brandDal.GetAll());
+        }
+
+        public IDataResult<List<BrandDetailDto>> GetBrandDetails()
+        {
+            return new SuccessDataResult<List<BrandDetailDto>>(_brandDal.GetBrandDetails());
         }
 
         public IDataResult< Brand> GetById(int id)
