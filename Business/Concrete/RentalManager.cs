@@ -5,6 +5,7 @@ using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using Entities.DTOs;
 using System;
@@ -123,6 +124,9 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-
+        public IDataResult<List<RentalDetailDto>> GetRentalsByCustomerId(int id)
+        {
+           return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalsByCustomerId(x=>x.CustomerId==id));
+        }
     }
 }
