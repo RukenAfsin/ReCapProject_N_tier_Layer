@@ -13,7 +13,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCarImageDal:EfEntityRepositoryBase<CarImage, RentACarContext>,ICarImageDal
     {
-        public List<CarImageDetailDto> GetById(Expression<Func<CarImageDetailDto, bool>> filter = null)
+        public List<CarImageDetailDto> GetByCarId(Expression<Func<CarImageDetailDto, bool>> filter = null)
         {
             using (RentACarContext context = new RentACarContext())
             {

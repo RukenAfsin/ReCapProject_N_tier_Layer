@@ -5,6 +5,7 @@ using Core.Utilities.Helpers.FileHelper;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using Microsoft.AspNetCore.Http;
 
 namespace Business.Concrete
@@ -15,7 +16,7 @@ namespace Business.Concrete
         IFileHelper _fileHelper;
 
 
-        public CarImageManager(ICarImageDal carımdageDal,IFileHelper fileHelper)
+        public CarImageManager(ICarImageDal carımdageDal, IFileHelper fileHelper)
         {
             _carImageDal = carımdageDal;
             _fileHelper = fileHelper;
@@ -23,7 +24,7 @@ namespace Business.Concrete
 
         //public IResult Add(IFormFile file, CarImage carImage)
         //{
-        //   IResult result= BusinessRules.Run(CheckIfCarImageLimit(carImage.CarId));
+        //    IResult result = BusinessRules.Run(CheckIfCarImageLimit(carImage.CarId));
         //    if (result != null)
         //    {
         //        return result;
@@ -44,19 +45,19 @@ namespace Business.Concrete
 
         public IDataResult<List<CarImage>> GetAll()
         {
-          
-         return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
+
+            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
         }
 
-        //public IDataResult<List<CarImage>> GetByCarId(int carId)
-        //{
-        //    var result = BusinessRules.Run(CheckCarImage(carId));
-        //    if (result != null)
-        //    {
-        //        return new ErrorDataResult<List<CarImage>>(GetDefaultImage(carId).Data);
-        //    }
-        //    return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c => c.CarId == carId));
-        //}
+        public IDataResult<List<CarImageDetailDto>> GetByCarId(int carId)
+        {
+            //var result = BusinessRules.Run(CheckCarImage(carId));
+            //if (result != null)
+            //{
+            //    return new ErrorDataResult<List<CarImage>>(GetDefaultImage(carId).Data);
+            //}
+            return new SuccessDataResult<List<CarImageDetailDto>>(_carImageDal.GetByCarId(c => c.CarId == carId));
+        }
 
         public IDataResult<CarImage> GetByImageId(int imageId)
         {
@@ -72,13 +73,14 @@ namespace Business.Concrete
 
         //private IResult CheckIfCarImageLimit(int carId)
         //{
-        //    var result = _carImageDal.GetAll(p=>p.CarId== carId).Count;
-        //    if(result>5)
+        //    var result = _carImageDal.GetAll(p => p.CarId == carId).Count;
+        //    if (result > 5)
         //    {
         //        return new ErrorResult();
         //    }
         //    return new SuccessResult();
         //}
+
         //private IResult CheckCarImage(int carId)
         //{
         //    var result = _carImageDal.GetAll(c => c.CarId == carId).Count;
