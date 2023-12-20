@@ -7,6 +7,7 @@ using Core.Aspects.Autofac.Transactions;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using Entities.DTOs;
 using System;
@@ -52,11 +53,13 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Car>>( _carDal.GetAll());
         }
 
+
+
         [SecuredOperation("car.add,admin")]
         [CacheAspect]
         public IDataResult<Car> GetById(int carId)
         {
-            return new SuccessDataResult<Car>(_carDal.Get(x=>x.CarId==carId));
+            return new SuccessDataResult<Car>(_carDal.Get(x => x.CarId == carId));
         }
 
         public IDataResult<List<CarDetailDto>> GetCarDetails()
@@ -64,16 +67,20 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
         }
 
-        public IDataResult<List<Car>> GetCarsByBrandId(int id)
+
+        public IDataResult<List<CarDetailDto>> GetCarsByBrandId(int brandId)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(p=>p.BrandId==id));
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarsByBrandId(p=>p.BrandId==brandId));
         }
 
-        [TransactionScopeAspect]
-        public IDataResult<List<Car>> GetCarsByColorId(int id)
+        public IDataResult<List<CarDetailDto>> GetCarsByColorId(int colorId)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(p=>p.ColorId==id));
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarsByColorId(p => p.ColorId == colorId));
+
         }
+
+
+        // [TransactionScopeAspect]
 
         //[CacheRemoveAspect("ICarService.Get")]
         public IResult Update(Car car)
@@ -81,5 +88,7 @@ namespace Business.Concrete
            _carDal.Update(car);
             return new SuccessResult();
         }
+
+       
     }
 }

@@ -4,7 +4,7 @@ using Core.Utilities.Helpers.GuidHelper;
 
 namespace Core.Utilities.Helpers.FileHelper
 {
-    public class FileHelperManager :IFileHelper
+    public class FileHelperManager : IFileHelper
     {
         public void Delete(string filePath)
         {
@@ -28,7 +28,7 @@ namespace Core.Utilities.Helpers.FileHelper
             if (file.Length > 0)
             {
                 if (!Directory.Exists(root))
-                {                           
+                {
                     Directory.CreateDirectory(root);
                 }
                 string extension = Path.GetExtension(file.FileName);
