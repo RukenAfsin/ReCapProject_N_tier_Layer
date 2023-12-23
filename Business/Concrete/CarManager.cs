@@ -5,6 +5,7 @@ using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Transactions;
 using Core.Aspects.Autofac.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
@@ -62,6 +63,12 @@ namespace Business.Concrete
             return new SuccessDataResult<Car>(_carDal.Get(x => x.CarId == carId));
         }
 
+        public IDataResult<List<CarDetailDto>> GetCarDetailByColorAndBrand(int colorId, int brandId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailByColorAndBrand(x => x.ColorId == colorId && x.BrandId == brandId));
+        }
+
+
         public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails());
@@ -89,6 +96,17 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
+        //public IResult CheckColorAndBrand(int id1, int id2)
+        //{
+        // var result= _carDal.GetAll(x=>x.ColorId==id1 && x.BrandId==id2);
+        //    if (result.Any())
+        //    {
+        //        return new SuccessResult();
+        //    }
+
+        //    return new ErrorResult();
+        
+        //}
        
     }
 }
