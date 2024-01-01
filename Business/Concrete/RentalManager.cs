@@ -80,10 +80,9 @@ namespace Business.Concrete
             {
                 return result;
             }
-
-
-            return new SuccessResult("Ödeme Sayfasına Yönlendiriliyorsunuz.");
+            return new SuccessResult("You are directed to the payment page");
         }
+
 
         private IResult CheckIfThisCarIsAlreadyRentedInSelectedDateRange(Rental entity)
         {
@@ -96,7 +95,7 @@ namespace Business.Concrete
 
             if (result != null)
             {
-                return new ErrorResult();
+                return new ErrorResult("The car has been rented by someone else in this dates");
             }
             return new SuccessResult();
 

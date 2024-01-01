@@ -1,4 +1,5 @@
 ﻿using Core.DataAccess;
+using Core.Utilities.Result;
 using Entities.Concrete;
 using Entities.DTOs;
 using System;
@@ -14,6 +15,7 @@ namespace DataAccess.Abstract
     {
         List<RentalDetailDto> GetRentalsDetails(Expression<Func<RentalDetailDto, bool>> filter = null);
         List<RentalDetailDto> GetRentalsByCustomerId(Expression<Func<RentalDetailDto, bool>> filter = null);
+       // List<RentalDetailDto> CheckRental(Expression<Func<RentalDetailDto, bool>> filter = null);
 
     }
 }

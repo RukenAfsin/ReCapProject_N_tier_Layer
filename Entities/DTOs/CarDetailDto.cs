@@ -19,5 +19,6 @@ namespace Entities.DTOs
         public int DailyPrice { get; set; }
         public string Description { get; set; }
         public int Year { get; set; }
+        public string ImagePath { get; set; }
     }
 }

@@ -71,6 +71,7 @@ namespace WebAPI
             app.UseAuthorization();
 
             app.UseAuthentication();
+            app.UseStaticFiles(); // www.root için
 
             app.MapControllers();
 

@@ -1,4 +1,5 @@
 ﻿using Core.DataAccess.EntityFramework;
+using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -67,6 +68,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  ReturnDate = rent.ReturnDate,
                                  DailyPrice = car.DailyPrice,
                                  RentDate = rent.RentDate,
+                                 CarName = car.CarName,
                                  //DeliveryStatus = rent.DeliveryStatus
                              };
                 return filter == null
@@ -74,5 +76,36 @@ namespace DataAccess.Concrete.EntityFramework
                     : result.Where(filter).ToList();
             }
         }
+
+
+        //public List<RentalDetailDto> CheckRental(Expression<Func<RentalDetailDto, bool>> filter = null)
+        //{
+        //    using (RentACarContext context = new RentACarContext())
+        //    {
+        //        var result = from rent in context.Rental
+        //                     join car in context.Car
+        //               on rent.CarId equals car.CarId
+        //                     join customer in context.Customer
+        //                         on rent.CustomerId equals customer.CustomerId
+        //                     join user in context.User
+        //                         on customer.UserId equals user.UserId
+        //                     join brand in context.Brand
+        //                         on car.BrandId equals brand.BrandId
+        //                     select new RentalDetailDto
+        //                     {
+        //                         RentalId = rent.RentalId,
+        //                         CarId = car.CarId,
+        //                         CustomerId = customer.CustomerId,
+        //                         CustomerFullName = $"{user.FirstName} {user.LastName}",
+        //                         ReturnDate = rent.ReturnDate,
+        //                         RentDate = rent.RentDate,
+        //                         CarName = car.CarName,
+        //                         //DeliveryStatus = rent.DeliveryStatus
+        //                     };
+        //        return filter == null
+        //            ? result.ToList()
+        //            : result.Where(filter).ToList();
+        //    }
+        //}
     }
 }

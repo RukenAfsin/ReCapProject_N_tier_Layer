@@ -38,6 +38,7 @@ namespace DataAccess.Concrete.EntityFramework
                                  ImagePath = cı.ImagePath,
                                  Date = cı.Date,
                                  Year = c.Year,
+
                              };
                 return filter == null
                     ? result.ToList()
