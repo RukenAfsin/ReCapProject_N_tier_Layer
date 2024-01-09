@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
+using Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
@@ -23,6 +25,7 @@ namespace Business.Concrete
             _rentalService = rentalService;
         }
 
+        [ValidationAspect(typeof(PaymentValidator))]
         public IResult Add(Payment payment)
         {
             //IResult result = BusinessRules.Run(IfPaymentSuccess());
