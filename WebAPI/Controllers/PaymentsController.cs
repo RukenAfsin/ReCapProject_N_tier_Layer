@@ -30,5 +30,19 @@ namespace WebAPI.Controllers
 
         }
 
+
+        [HttpGet("paymentdetail")]
+        public IActionResult GetDetail() 
+        {
+            var result = _paymentservice.GetPaymentsDetail();
+            if(result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+          
+          
+        }
+
     }
 }

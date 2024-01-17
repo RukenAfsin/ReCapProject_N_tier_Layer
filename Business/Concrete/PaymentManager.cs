@@ -6,6 +6,7 @@ using Core.Utilities.Business;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,28 +29,31 @@ namespace Business.Concrete
         [ValidationAspect(typeof(PaymentValidator))]
         public IResult Add(Payment payment)
         {
-            //IResult result = BusinessRules.Run(IfPaymentSuccess());
+            //IResult result = BusinessRules.Run(IfPaymentSuccess(Rental payment));
 
-            //if (result != null && result.Success)
-            //{
-                _paymentdal.Add(payment);
-               /* _rentalService.Add(new Rental()); */// Burada uygun bir Rental nesnesi oluşturmanız gerekiyor.
+          
+                _paymentdal.Add(payment);          
                 return new SuccessResult(Message.PaymentAdded);
-            //}
-            //return new ErrorResult();
+          
         }
 
-        //private IResult IfPaymentSuccess()
-        //{
-           
-        //    bool paymentSuccess = true; // Bu kısmı kendi iş mantığınıza göre güncelleyin.
+        public IDataResult<List<PaymentDetailDto>> GetPaymentsDetail()
+        {
+            return new SuccessDataResult<List<PaymentDetailDto>>(_paymentdal.GetPaymentsDetails());
+        }
 
-        //    if (paymentSuccess)
-        //    {
-        //        return new SuccessResult();
-        //    }
+        private IResult IfPaymentSuccess( Rental r,Payment p)
+        {
 
-        //    return new ErrorResult();
-        //}
+            var result = _paymentdal.Add;
+
+            if (result!=null)
+            {
+                   
+                return new SuccessResult();
+            }
+
+            return new ErrorResult();
+        }
     }
 }

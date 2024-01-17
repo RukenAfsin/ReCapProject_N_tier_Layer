@@ -11,6 +11,7 @@ namespace Entities.Concrete
     {
         public int Id { get; set; }
         public int CustomerId { get; set; }
+        public int RentalId { get; set; }
         public long CardNo { get; set; }
         public int ExpiryMonth{ get; set; }
         public int ExpiryYear { get; set; }
