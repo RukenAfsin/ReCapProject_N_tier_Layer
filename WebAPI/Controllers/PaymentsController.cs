@@ -17,7 +17,7 @@ namespace WebAPI.Controllers
             _paymentservice = paymentservice;
         }
 
-        [HttpPost]
+        [HttpPost("add")]
 
         public IActionResult PaymentAdd(Payment payment)
         {
@@ -42,6 +42,17 @@ namespace WebAPI.Controllers
             return BadRequest(result);
           
           
+        }
+
+        [HttpGet("getall")]
+        public IActionResult GetAll()
+        {
+            var result = _paymentservice.GetAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
 
     }

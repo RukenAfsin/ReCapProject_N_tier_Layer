@@ -5,6 +5,7 @@ using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using Entities.DTOs;
 using System;
@@ -35,6 +36,12 @@ namespace Business.Concrete
                 _paymentdal.Add(payment);          
                 return new SuccessResult(Message.PaymentAdded);
           
+        }
+
+        public IDataResult<List<Payment>> GetAll()
+        {
+            _paymentdal.GetAll();
+            return new SuccessDataResult<List<Payment>>(_paymentdal.GetAll());
         }
 
         public IDataResult<List<PaymentDetailDto>> GetPaymentsDetail()

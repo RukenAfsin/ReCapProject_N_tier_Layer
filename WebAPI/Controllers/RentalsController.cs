@@ -74,14 +74,14 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [HttpGet("checkrentalcarid")]
+        [HttpGet("checkrentalcarid")] //araç müsait mi değil mi 
         public IActionResult CheckRentalCarId(int carId)
         {
             var result = _rentalService.CheckRentalCarId(carId);
 
             return Ok(result);
         }
-        [HttpPost("checkrental")]
+        [HttpPost("checkrental")] //directed to payment page
         public IActionResult CheckRental(Rental entity)
         {
             var result = _rentalService.CheckRental(entity);

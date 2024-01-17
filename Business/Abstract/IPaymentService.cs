@@ -14,6 +14,7 @@ namespace Business.Abstract
     {
         IResult Add(Payment payment);
         IDataResult<List<PaymentDetailDto>> GetPaymentsDetail();
+        IDataResult<List<Payment>> GetAll();
 
     }
 }
