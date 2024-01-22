@@ -127,5 +127,10 @@ namespace Business.Concrete
         {
            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalsByCustomerId(x=>x.CustomerId==id));
         }
+
+        public IDataResult<List<RentalDetailDto>> GetRentalsByCarId(int carId)
+        {
+            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalsByCarId(x=>x.CarId== carId));
+        }
     }
 }

@@ -51,15 +51,17 @@ namespace Business.Concrete
 
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
         }
-        [CacheAspect]
+
+        //[CacheAspect]
         public IDataResult<List<CarImageDetailDto>> GetByCarId(int carId)
         {
             var result = BusinessRules.Run(CheckCarImage(carId));
             if (result != null)
             {
-                return new ErrorDataResult<List<CarImageDetailDto>>(GetDefaultImage(carId).Data);
+                return new ErrorDataResult<List<CarImageDetailDto>>(GetDefaultImage(carId).Data, Message.ImageError);
+               
             }
-            return new SuccessDataResult<List<CarImageDetailDto>>(_carImageDal.GetByCarId(c => c.CarId == carId));
+            return new SuccessDataResult<List<CarImageDetailDto>>(_carImageDal.GetByCarId(c => c.CarId == carId), Message.ImageSuccess);
         }
 
         public IDataResult<CarImage> GetByImageId(int imageId)

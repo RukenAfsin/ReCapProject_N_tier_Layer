@@ -35,10 +35,13 @@ namespace DataAccess.Concrete.EntityFramework
                                  DailyPrice = c.DailyPrice,
                                  Description = c.Description,
                                  Id = cı.Id,
-                                 ImagePath = cı.ImagePath,
+                                 //ImagePath = cı.ImagePath,
                                  Date = cı.Date,
                                  Year = c.Year,
-
+                                 ImagePath = (from cm in context.CarImage
+                                              where
+                                           cm.CarId == c.CarId
+                                              select cm.ImagePath).FirstOrDefault()
                              };
                 return filter == null
                     ? result.ToList()
