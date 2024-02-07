@@ -81,6 +81,8 @@ namespace WebAPI.Controllers
 
             return Ok(result);
         }
+
+
         [HttpPost("checkrental")] //directed to payment page
         public IActionResult CheckRental(Rental entity)
         {
