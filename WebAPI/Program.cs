@@ -25,7 +25,6 @@ namespace WebAPI
                builder.RegisterModule(new AutofacBusinessModule());
            }); //.net core altyapýnda ýoc var biliyorum ama autofac kullan diyoruz
 
-            // Add services to the container.
 
             builder.Services.AddControllers();
             builder.Services.AddCors();
@@ -51,20 +50,20 @@ namespace WebAPI
                 new CoreModule()
             });
 
-            // builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+        
+
             app.UseCors(builder=>builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
             app.UseHttpsRedirection();
 

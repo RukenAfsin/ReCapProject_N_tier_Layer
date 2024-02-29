@@ -9,7 +9,6 @@ using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 
-
 namespace Business.DependencyResolvers.Autofac
 {
     public class AutofacBusinessModule:Module
@@ -50,6 +49,8 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<UserManager>().As<IUserService>();
             builder.RegisterType<EfUserDal>().As<IUserDal>();
 
+            //LoggerExtension.RegisterLogger(builder);
+         
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 

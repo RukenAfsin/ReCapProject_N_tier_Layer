@@ -1,22 +1,9 @@
 ﻿using Business.Abstract;
-using Business.BusinessAspects.Autofac;
 using Business.Constants;
-using Business.ValidationRules.FluentValidation;
-using Core.Aspects.Autofac.Caching;
-using Core.Aspects.Autofac.Transactions;
-using Core.Aspects.Autofac.Validation;
-using Core.Utilities.Business;
 using Core.Utilities.Result;
 using DataAccess.Abstract;
-using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using Entities.DTOs;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
@@ -30,7 +17,7 @@ namespace Business.Concrete
         }
         //[SecuredOperation("car.add,admin")]
         //[ValidationAspect(typeof(CarValidator))]
-        //[CacheRemoveAspect("ICarService.Get")]
+      // [CacheRemoveAspect("ICarService.Get")]
         public IResult Add(Car car)
         {
            if(car.Description.Length>2 && car.DailyPrice>0)

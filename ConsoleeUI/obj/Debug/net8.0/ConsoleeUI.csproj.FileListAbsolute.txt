@@ -67,3 +67,10 @@ C:\Users\User\Desktop\Applications\ReCapProject\ConsoleeUI\bin\Debug\net8.0\Auto
 C:\Users\User\Desktop\Applications\ReCapProject\ConsoleeUI\bin\Debug\net8.0\Castle.Core.dll
 C:\Users\User\Desktop\Applications\ReCapProject\ConsoleeUI\bin\Debug\net8.0\FluentValidation.dll
 C:\Users\User\Desktop\Applications\ReCapProject\ConsoleeUI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\User\Desktop\Applications\ReCapProject\ConsoleeUI\bin\Debug\net8.0\Serilog.dll
+C:\Users\User\Desktop\Applications\ReCapProject\ConsoleeUI\bin\Debug\net8.0\Serilog.Extensions.Autofac.DependencyInjection.dll
+C:\Users\User\Desktop\Applications\ReCapProject\ConsoleeUI\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+C:\Users\User\Desktop\Applications\ReCapProject\ConsoleeUI\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+C:\Users\User\Desktop\Applications\ReCapProject\ConsoleeUI\bin\Debug\net8.0\Serilog.Sinks.File.dll
+C:\Users\User\Desktop\Applications\ReCapProject\ConsoleeUI\bin\Debug\net8.0\Serilog.Sinks.MSSqlServer.dll
+C:\Users\User\Desktop\Applications\ReCapProject\ConsoleeUI\bin\Debug\net8.0\Serilog.Sinks.PeriodicBatching.dll
