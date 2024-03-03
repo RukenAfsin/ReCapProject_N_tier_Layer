@@ -67,9 +67,10 @@ namespace WebAPI
             app.UseCors(builder=>builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
-            app.UseAuthentication();
             app.UseStaticFiles(); // www.root için
 
             app.MapControllers();
