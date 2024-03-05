@@ -84,6 +84,11 @@ namespace Business.Concrete
         }
 
 
+
+
+
+
+
         private IResult CheckIfThisCarIsAlreadyRentedInSelectedDateRange(Rental entity)
         {
             var result = _rentalDal.Get(r =>
