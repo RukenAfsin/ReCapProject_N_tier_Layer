@@ -13,7 +13,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCarImageDal:EfEntityRepositoryBase<CarImage, RentACarContext>,ICarImageDal
     {
-        public List<CarImageDetailDto> GetByCarId(Expression<Func<CarImageDetailDto, bool>> filter = null)
+        public List<CarImageDetailDto> GetAll(Expression<Func<CarImageDetailDto, bool>> filter = null)
         {
             using (RentACarContext context = new RentACarContext())
             {
@@ -24,6 +24,8 @@ namespace DataAccess.Concrete.EntityFramework
                              on cı.BrandId equals b.BrandId
                              join co in context.Color
                              on cı.ColorId equals co.ColorId
+                             join r in context.Rental
+                             on cı.RentalId equals r.RentalId
                              select new CarImageDetailDto
                              {
                                  CarId = c.CarId,
@@ -36,6 +38,50 @@ namespace DataAccess.Concrete.EntityFramework
                                  Description = c.Description,
                                  Id = cı.Id,
                                  //ImagePath = cı.ImagePath,
+                                 RentalId = r.RentalId,
+                                 RentDate = r.RentDate,
+                                 ReturnDate = r.ReturnDate,
+                                 Date = cı.Date,
+                                 Year = c.Year,
+                                 ImagePath = (from cm in context.CarImage
+                                              where
+                                           cm.CarId == c.CarId
+                                              select cm.ImagePath).FirstOrDefault()
+                             };
+                return filter == null
+                    ? result.ToList()
+                    : result.Where(filter).ToList();
+            }
+        }
+
+        public List<CarImageDetailDto> GetByCarId(Expression<Func<CarImageDetailDto, bool>> filter = null)
+        {
+            using (RentACarContext context = new RentACarContext())
+            {
+                var result = from cı in context.CarImage
+                             join c in context.Car
+                             on cı.CarId equals c.CarId
+                             join b in context.Brand
+                             on cı.BrandId equals b.BrandId
+                             join co in context.Color
+                             on cı.ColorId equals co.ColorId
+                             join r in context.Rental
+                             on  cı.RentalId equals r.RentalId
+                             select new CarImageDetailDto
+                             {
+                                 CarId = c.CarId,
+                                 CarName = c.CarName,
+                                 BrandId = b.BrandId,
+                                 ColorId = co.ColorId,
+                                 BrandName = b.BrandName,
+                                 ColorName = co.ColorName,
+                                 DailyPrice = c.DailyPrice,
+                                 Description = c.Description,
+                                 Id = cı.Id,
+                                 //ImagePath = cı.ImagePath,
+                                 RentalId = r.RentalId,
+                                 RentDate=r.RentDate,
+                                 ReturnDate = r.ReturnDate,
                                  Date = cı.Date,
                                  Year = c.Year,
                                  ImagePath = (from cm in context.CarImage

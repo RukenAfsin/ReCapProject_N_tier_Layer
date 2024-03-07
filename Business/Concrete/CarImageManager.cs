@@ -46,10 +46,10 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        public IDataResult<List<CarImage>> GetAll()
+        public IDataResult<List<CarImageDetailDto>> GetAll()
         {
 
-            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll());
+            return new SuccessDataResult<List<CarImageDetailDto>>(_carImageDal.GetAll());
         }
 
         //[CacheAspect]
